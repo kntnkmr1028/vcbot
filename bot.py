@@ -3,6 +3,22 @@ from discord.ext import commands
 import asyncio
 import os
 from dotenv import load_dotenv
+#render
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Bot is running!"
+
+def run():
+    # Renderが指定するポートでサーバーを起動
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
+#render
 
 load_dotenv()
 # --- 設定項目 ---
