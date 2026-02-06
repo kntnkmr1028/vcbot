@@ -57,6 +57,10 @@ async def on_voice_state_update(member, before, after):
             if channel:
                 await channel.connect()
 
+@app.route('/health')
+def health():
+    return "OK", 200
+
 # プログラムの実行
 if __name__ == "__main__":
     # 1. まずWebサーバーを起動（別スレッドで裏側で動かす）
